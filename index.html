@@ -33,20 +33,24 @@
 
     <div class="template-container" style="padding-top: 1rem; padding-bottom: 1rem;">
         <div>
-            <button class="button">Show All Cards</button>
-            <button class="button">Hide All Cards</button>
-            <button class="button">Delete All Cards</button>
+            <button class="button" onclick="showAll()">Show All Cards</button>
+            <button class="button" onclick="hideAll()">Hide All Cards</button>
+            <button class="button" onclick="deleteAll()">Delete All Cards</button>
         </div>
     </div>
     
-    <div class="cards-container" id="cards-container">
-        <div class="card">
+    <ul class="cards-container" id="cards-container">
+        <li class="card">
             <img src="https://i.imgflip.com/18pk4c.jpg" alt="">
             <div class="card-body">
                 <h4>Shrek</h4>
                 <p>This is my <s>card</s> swamp! You won't be able to delete it.</p>
             </div>
-        </div>
+        </li>
+    </ul>
+
+    <div class="footer">
+        <p>Copyright @wei2young™</p>
     </div>
 </body>
 </html>
