@@ -1,10 +1,9 @@
 .navbar-container {
     display: flex;
     position: sticky;
-    height: 10vh;
+    height: 5em;
     width: 100%;
-    background: rgb(34,193,195);
-    background: linear-gradient(99deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(99deg, rgb(0, 181, 184) 0%, rgb(196, 134, 1) 100%);
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,45 +14,29 @@
 .navbar-link {
     margin: 30px;
     color: white;
-    font-size: 20px;
+    font-size: 1.5em;
     text-decoration: none;
 }
 
-.about-container {
+.main-container {
     margin-top: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
-    padding: 25px;
+    padding: 30px;
     max-width: 1000px;
     border-radius: 10px;
-    background-color: #00b3cb;
+    background-color: rgb(0, 181, 184);
     color: white;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    flex: 1;
-}
-
-.home-input-container {
-    margin-top: 3rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    display: flex;
-}
-
-.inputs {
     display: flex;
     flex-direction: column;
-    background-color: #4285f4;
-    padding: 25px;
-    color: white;
-    border-radius: 3px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    flex: 2;
+    flex: 1;
 }
 
 .input {
     background-color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     height: 1.25rem;
     margin-top: 5px;
 }
@@ -61,25 +44,18 @@
 .button {
     background-color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     height: 2rem;
-    width: auto;
+    width: 6rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .button:hover {
     cursor: pointer;
-    color: #4285f4;
+    color: rgb(46, 113, 114);
 }
 
-.title {
-    margin-top: 0.5rem;
-}
-
-.desc {
-    line-height: 1.5;
-}
-
-.cards {
+.cards-container {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -108,4 +84,5 @@
 body {
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
 }
