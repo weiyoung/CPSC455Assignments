@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Card Game</title>
+    <title>Home - Trading Card Website</title>
     <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="navbar-container">
@@ -14,66 +15,36 @@
         <a class="navbar-link" href="about.html">About</a>
     </div>
 
-    <form class="main-container">
-        <label for="name" style="margin-bottom: 5px;">Name:</label>
-        <input type="text" id="name" name="name" class="input">
+    <form class="template-container">
+        <label for="name" style="margin-bottom: 5px;">Card Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" class="input">
         <br />
-        <label for="file" style="margin-bottom: 5px;">Image url:</label>
-        <input type="text" id="file" name="file" class="input">
+        <label for="url" style="margin-bottom: 5px;">Image URL:</label>
+        <input type="text" id="url" name="url" placeholder="URL" class="input">
         <br />
-        <div class="home-input-buttons">
-            <input type="submit" value="Add" class="button" style="background-color: rgb(81, 252, 255);">
-            <input type="reset" value="Clear" class="button">
+        <label for="desc" style="margin-bottom: 5px;">Description:</label>
+        <input type="text" id="desc" name="desc" placeholder="Description" class="input">
+        <br />
+        <div>
+            <input type="submit" value="Add Card" class="button" style="background-color: rgb(151, 253, 255);">
+            <input type="reset" value="Clear Form" class="button">
         </div>
     </form>
 
-    <div class="main-container">
-        <button class="button">Delete all cards</button>
+    <div class="template-container" style="padding-top: 1rem; padding-bottom: 1rem;">
+        <div>
+            <button class="button">Show All Cards</button>
+            <button class="button">Hide All Cards</button>
+            <button class="button">Delete All Cards</button>
+        </div>
     </div>
-    <div class="cards-container">
+    
+    <div class="cards-container" id="cards-container">
         <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Description</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-            </svg>
+            <img src="https://i.imgflip.com/18pk4c.jpg" alt="">
             <div class="card-body">
-                <p>This is a generic card.</p>
-            </div>
-        </div>
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Description</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-            </svg>
-            <div class="card-body">
-                <p>This is a generic card.</p>
-            </div>
-        </div>
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Description</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-            </svg>
-            <div class="card-body">
-                <p>This is a generic card.</p>
-            </div>
-        </div>
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Description</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-            </svg>
-            <div class="card-body">
-                <p>This is a generic card.</p>
-            </div>
-        </div>
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Description</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-            </svg>
-            <div class="card-body">
-                <p>This is a generic card.</p>
+                <h4>Shrek</h4>
+                <p>This is my <s>card</s> swamp! You won't be able to delete it.</p>
             </div>
         </div>
     </div>
