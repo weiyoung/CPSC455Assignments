@@ -1,0 +1,111 @@
+.navbar-container {
+    display: flex;
+    position: sticky;
+    height: 10vh;
+    width: 100%;
+    background: rgb(34,193,195);
+    background: linear-gradient(99deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar-link {
+    margin: 30px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.about-container {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding: 25px;
+    max-width: 1000px;
+    border-radius: 10px;
+    background-color: #00b3cb;
+    color: white;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    flex: 1;
+}
+
+.home-input-container {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: flex;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    background-color: #4285f4;
+    padding: 25px;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    flex: 2;
+}
+
+.input {
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    height: 1.25rem;
+    margin-top: 5px;
+}
+
+.button {
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    height: 2rem;
+    width: auto;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: #4285f4;
+}
+
+.title {
+    margin-top: 0.5rem;
+}
+
+.desc {
+    line-height: 1.5;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 1rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+body {
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
