@@ -5,15 +5,15 @@ import { Route, Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav>
-            <div className="navbar">
+        <div>
+            <nav className="navbar">
                 <Link className="navbar-link" to="/">Home</Link>
                 <Link className="navbar-link" to="/about">About</Link>
-            </div>
+            </nav>
             
             <Route path="/" exact component={Home}/>
             <Route path="/about" component={About}/>
-        </nav>
+        </div>
     )
 }
 

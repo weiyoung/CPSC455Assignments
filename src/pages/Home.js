@@ -1,7 +1,9 @@
+import Form from "../components/Form"
+
 const Home = () => {
     return (
-        <div>
-            This is Home
+        <div className={"container"}>
+            <Form />
         </div>
     )
 }
