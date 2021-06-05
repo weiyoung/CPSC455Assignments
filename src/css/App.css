@@ -54,10 +54,13 @@
 
 .navbar-link:hover {
   color: #00e3d4;
+  cursor: pointer;
 }
 
 .container {
   margin: 2.5rem 5rem;
+  padding: 1.5rem 3rem;
+  min-width: 17rem;
   background-color: #282828;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px 2px #0004;
@@ -79,4 +82,18 @@
   cursor: pointer;
   color: #111;
   background-color: #00e3d4;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem;
 }

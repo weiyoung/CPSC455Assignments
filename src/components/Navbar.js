@@ -1,7 +1,7 @@
-import '../css/App.css';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import { Route, Link } from 'react-router-dom';
+import '../css/App.css'
+import Home from '../pages/Home'
+import About from '../pages/About'
+import { Route, Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (

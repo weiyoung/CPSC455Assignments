@@ -1,7 +1,6 @@
 .form {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 3rem;
 }
 
 .form-label {
@@ -16,4 +15,10 @@
     border-radius: 0.25rem;
     height: 1.25rem;
     margin: 0.25rem;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
