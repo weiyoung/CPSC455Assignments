@@ -35,7 +35,7 @@ const Home = () => {
                     <button onClick={() => clearCards()} className="button">Delete All</button>
                 </div>
                 <div className="card-collection">
-                    {visible && cards.map(card => <Card card={card}/>) }
+                    { visible && cards.map(card => <Card card={card} />) }
                 </div>
             </div>
         </>

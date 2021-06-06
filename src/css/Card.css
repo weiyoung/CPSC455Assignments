@@ -3,20 +3,14 @@
     display: flex;
     flex-direction: column;
     width: 17rem;
-    height: 23rem;
+    height: 26rem;
     margin: 1rem;
-    opacity: 0.7;
     word-wrap: break-word;
     background-color: #1118;
     background-clip: border-box;
     border-radius: 0.5rem;
     border: 1px solid rgba(0 0 0 .125);
     box-shadow: 0 0 5px 2px #0004;
-}
-
-.card:hover {
-    opacity: 1;
-    cursor: pointer;
 }
 
 .card-name {
@@ -40,4 +34,20 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.card-popup-btn {
+    align-self: center;
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+    font-size: 1rem;
+    background-color: #aaa;
+    border: none;
+    border-radius: 0.4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card-popup-btn:hover {
+    cursor: pointer;
+    background-color: #fff;
 }
