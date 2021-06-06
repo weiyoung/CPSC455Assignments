@@ -4,6 +4,8 @@ import Card from '../components/Card'
 import { useState } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
 
+let cardDeck = [] // collection of cards
+
 const Home = () => {
     const [cards, setCards, clearCards] = useLocalStorage('MyCards', [
         {
@@ -22,17 +24,20 @@ const Home = () => {
 
     return (
         <>
-            <div className={"container"}>
+            <div className="container">
                 <h1>Add a card to the collection!</h1>
-                <Form setCards={setCards}/>
+                <Form setCards={setCards} cardDeck={cardDeck}/>
             </div>
             
-            <div className={"container"}>
+            <div className="container">
                 <h1>Card collection</h1>
                 <div className="card-buttons">
                     <button onClick={() => setVisible(true)} className="button">Show All</button>
                     <button onClick={() => setVisible(false)} className="button">Hide All</button>
-                    <button onClick={() => clearCards()} className="button">Delete All</button>
+                    <button onClick={() => {
+                        clearCards()
+                        cardDeck = []
+                    }} className="button">Delete All</button>
                 </div>
                 <div className="card-collection">
                     { visible && cards.map(card => <Card card={card} />) }

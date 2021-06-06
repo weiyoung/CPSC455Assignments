@@ -1,16 +1,12 @@
 import { useState } from 'react'
 
 // hook from https://usehooks.com/useLocalStorage/
-
-let values = []
-
 function useLocalStorage(key, initialValue) {
   
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key)
-      // if no item: return initialValue
-      // else: return item
+      // if no cards added yet, example cards are shown
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       console.log(error)
@@ -19,10 +15,9 @@ function useLocalStorage(key, initialValue) {
   })
 
   const setValue = (value) => {
-    values.push(value)
     try {
-      setStoredValue(values)
-      window.localStorage.setItem(key, JSON.stringify(values))
+      setStoredValue(value)
+      window.localStorage.setItem(key, JSON.stringify(value))
     } catch (error) {
       console.log(error)
     }
@@ -30,8 +25,7 @@ function useLocalStorage(key, initialValue) {
 
   const clearValues = () => {
     try {
-      values = []
-      setStoredValue(values)
+      setStoredValue([])
       window.localStorage.removeItem(key)
     } catch (error) {
       console.log(error)
