@@ -20,7 +20,7 @@ const Home = () => {
         }
     ])
 
-    const [visible, setVisible]= useState(true)
+    const [cardsVisible, setCardsVisible]= useState(true)
 
     return (
         <>
@@ -32,15 +32,15 @@ const Home = () => {
             <div className="container">
                 <h1>Card collection</h1>
                 <div className="card-buttons">
-                    <button onClick={() => setVisible(true)} className="button">Show All</button>
-                    <button onClick={() => setVisible(false)} className="button">Hide All</button>
+                    <button onClick={() => setCardsVisible(true)} className="button">Show All</button>
+                    <button onClick={() => setCardsVisible(false)} className="button">Hide All</button>
                     <button onClick={() => {
                         clearCards()
                         cardDeck = []
                     }} className="button">Delete All</button>
                 </div>
                 <div className="card-collection">
-                    { visible && cards.map(card => <Card key={card.name} card={card} />) }
+                    { cardsVisible && cards.map((card, id) => <Card key={id} card={card} />) }
                 </div>
             </div>
         </>
