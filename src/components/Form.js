@@ -19,13 +19,13 @@ const Form = ({ setCards, cardDeck }) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form">
-            <label for="name" className="form-label">Card Name</label>
+            <label htmlFor="name" className="form-label">Card Name</label>
             <input type="text" placeholder="Name" {...register('name', { required: true })} className="form-input" />
 
-            <label for="url" className="form-label">Image URL</label>
+            <label htmlFor="url" className="form-label">Image URL</label>
             <input type="text" placeholder="URL" {...register('url', { required: true })} className="form-input" />
 
-            <label for="desc" className="form-label">Description</label>
+            <label htmlFor="desc" className="form-label">Description</label>
             <input type="text" placeholder="Description" {...register('desc', { required: true })} className="form-input" />
             
             <div className="form-buttons">

@@ -40,7 +40,7 @@ const Home = () => {
                     }} className="button">Delete All</button>
                 </div>
                 <div className="card-collection">
-                    { visible && cards.map(card => <Card card={card} />) }
+                    { visible && cards.map(card => <Card key={card.name} card={card} />) }
                 </div>
             </div>
         </>
