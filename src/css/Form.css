@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    text-align: left;
+    margin: 0.25rem;
+}
+
+.form-input {
+    font-size: 1rem;
+    background-color: #ddd;
+    border: none;
+    border-radius: 0.25rem;
+    height: 1.25rem;
+    margin: 0.25rem;
+    padding: 0.15rem;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
