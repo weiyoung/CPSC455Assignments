@@ -1,11 +1,9 @@
 import '../css/App.css'
 import Form from "../components/Form"
 import Card from '../components/Card'
-import useLocalStorage from '../hooks/useLocalStorage'
+import { CardsContext } from '../contexts/CardsContext'
 import { useState } from 'react'
 import useAxios from 'axios-hooks'
-
-let cardDeck = [] // collection of cards
 
 const Home = () => {
     const [{data, loading, error, response}, execute, manualCancel] = useAxios({
@@ -15,7 +13,7 @@ const Home = () => {
 
     console.log(data)
 
-    const [cards, setCards, clearCards] = useLocalStorage('MyCards', [
+    const [cards, setCards] = useState([
         {
             name: "(Example) Pikachu",
             url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
@@ -31,10 +29,10 @@ const Home = () => {
     const [cardsVisible, setCardsVisible]= useState(true)
 
     return (
-        <>
+        <CardsContext.Provider value={{ cards, setCards }}>
             <div className="container">
                 <h1>Add a card to the collection!</h1>
-                <Form setCards={setCards} cardDeck={cardDeck}/>
+                <Form cards={cards} setCards={setCards}/>
             </div>
             
             <div className="container">
@@ -43,15 +41,14 @@ const Home = () => {
                     <button onClick={() => setCardsVisible(true)} className="button">Show All</button>
                     <button onClick={() => setCardsVisible(false)} className="button">Hide All</button>
                     <button onClick={() => {
-                        clearCards()
-                        cardDeck = []
+                        // something
                     }} className="button">Delete All</button>
                 </div>
                 <div className="card-collection">
                     { cardsVisible && cards.map((card, id) => <Card key={id} card={card} />) }
                 </div>
             </div>
-        </>
+        </CardsContext.Provider>
     )
 }
 

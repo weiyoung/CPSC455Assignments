@@ -1,9 +1,12 @@
 import '../css/App.css'
 import '../css/Form.css'
+import { CardsContext } from '../contexts/CardsContext'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 
-const Form = ({ setCards, cardDeck }) => {
-    const {register, handleSubmit} = useForm()
+const Form = () => {
+    const { cards, setCards } = useContext(CardsContext)
+    const { register, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
         const newCard = {
@@ -11,9 +14,7 @@ const Form = ({ setCards, cardDeck }) => {
             url: data.url,
             desc: data.desc
         }
-        const newDeck = [...cardDeck, newCard] // need to setCards with a new deck so useState will actually update the cards
-        setCards(newDeck)
-        cardDeck.push(newCard)
+        setCards([...cards, newCard])
         e.target.reset()
     }
 
