@@ -1,12 +1,20 @@
 import '../css/App.css'
 import Form from "../components/Form"
 import Card from '../components/Card'
-import { useState } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
+import { useState } from 'react'
+import useAxios from 'axios-hooks'
 
 let cardDeck = [] // collection of cards
 
 const Home = () => {
+    const [{data, loading, error, response}, execute, manualCancel] = useAxios({
+        method: 'GET',
+        url: "http://localhost:5000/cards"
+    })
+
+    console.log(data)
+
     const [cards, setCards, clearCards] = useLocalStorage('MyCards', [
         {
             name: "(Example) Pikachu",
