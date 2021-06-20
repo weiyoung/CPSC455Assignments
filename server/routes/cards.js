@@ -4,11 +4,17 @@ var router = express.Router();
 let cards = [
   {
     id: Date.now().toString().substring(4, 12),
-    name: "(Eg.) Pikachu",
+    name: "Pikachu",
     url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
-    desc: "It keeps its tail raised to monitor its surroundings. If you yank its tail, it will try to bite you."
+    desc: "When Pikachu meet, they’ll touch their tails together and exchange electricity through them as a form of greeting."
   }
 ];
+
+// GET one card
+router.get('/:id', function (req, res) {
+  const [card] = cards.filter(card => card.id === req.params.id);
+  res.send(card);
+});
 
 // GET all cards
 router.get('/', function (req, res) {
@@ -18,6 +24,13 @@ router.get('/', function (req, res) {
 // POST one card
 router.post('/', function (req, res) {
   cards.push(req.body);
+  res.send(cards);
+});
+
+// PATCH one card
+router.patch('/:id', function (req, res) {
+  const [card] = cards.filter(card => card.id === req.params.id);
+  card.desc = req.body.desc;
   res.send(cards);
 });
 
