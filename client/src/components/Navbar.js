@@ -10,8 +10,8 @@ const Navbar = () => (
             <Link className="navbar-link" to="/about">About</Link>
         </nav>
         
-        <Route path="/" exact component={Home}/>
-        <Route path="/about" component={About}/>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
     </BrowserRouter>
 )
 
