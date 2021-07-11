@@ -12,7 +12,7 @@ const Popup = ({ content, open, onClose }) => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
-        axios.patch(`http://localhost:5000/cards/${content.id}`, { desc: data.desc }).then(res => setCards(res.data))
+        axios.patch(`http://localhost:5000/cards/${content._id}`, { desc: data.desc }).then(res => setCards(res.data))
         setEditMode(false)
     }
 
@@ -25,7 +25,7 @@ const Popup = ({ content, open, onClose }) => {
                 <img className="popup-img" src={content.url} alt={content.name} />
                 <div className="popup-details">
                     <div className="popup-details-name">{content.name}</div>
-                    <div className="popup-details-id">ID: {content.id}</div>
+                    <div className="popup-details-id">ID: {content._id}</div>
                     {!editMode && <div className="popup-details-desc">{content.desc}</div>}
                     {!editMode && <button onClick={() => setEditMode(true)} className="popup-details-edit-btn">Edit Description</button>}
                     {editMode && <form onSubmit={handleSubmit(onSubmit)} className="form">

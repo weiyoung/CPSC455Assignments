@@ -10,7 +10,7 @@ const Card = ({ card }) => {
     const [popupOpen, setPopupOpen] = useState(false)
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/cards/${card.id}`).then(res => setCards(res.data))
+        axios.delete(`http://localhost:5000/cards/${card._id}`).then(res => setCards(res.data))
     }
 
     return (

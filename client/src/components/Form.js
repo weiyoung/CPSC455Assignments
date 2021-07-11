@@ -11,10 +11,10 @@ const Form = () => {
 
     const onSubmit = (data, e) => {
         const newCard = {
-            id: Date.now().toString().substring(4, 12),
             name: data.name,
             url: data.url,
-            desc: data.desc
+            desc: data.desc,
+            star: false
         }
         axios.post(`http://localhost:5000/cards`, newCard).then(res => setCards(res.data))
         e.target.reset()
