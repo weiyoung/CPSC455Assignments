@@ -16,7 +16,7 @@ const Form = () => {
             desc: data.desc,
             star: false
         }
-        axios.post(`http://localhost:5000/cards`, newCard).then(updateCards)
+        axios.post(`http://${window.location.hostname}:5000/cards`, newCard).then(updateCards)
         e.target.reset()
     }
 

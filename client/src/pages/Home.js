@@ -8,7 +8,7 @@ import axios from 'axios'
 const Home = () => {
     const [cards, setCards] = useState([])
     const updateCards = () => {
-        axios.get(`http://localhost:5000/cards`).then(res => setCards(res.data))
+        axios.get(`http://${window.location.hostname}:5000/cards`).then(res => setCards(res.data))
     }
 
     useEffect(updateCards, [])
@@ -16,7 +16,7 @@ const Home = () => {
     const [cardsVisible, setCardsVisible]= useState(true)
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/cards`).then(updateCards)
+        axios.delete(`http://${window.location.hostname}:5000/cards`).then(updateCards)
     }
 
     return (
