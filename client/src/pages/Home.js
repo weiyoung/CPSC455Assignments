@@ -7,19 +7,20 @@ import axios from 'axios'
 
 const Home = () => {
     const [cards, setCards] = useState([])
-
-    useEffect(() => {
+    const updateCards = () => {
         axios.get(`http://localhost:5000/cards`).then(res => setCards(res.data))
-    }, [])
+    }
+
+    useEffect(updateCards, [])
 
     const [cardsVisible, setCardsVisible]= useState(true)
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/cards`).then(res => setCards(res.data))
+        axios.delete(`http://localhost:5000/cards`).then(updateCards)
     }
 
     return (
-        <CardsContext.Provider value={{ cards, setCards }}>
+        <CardsContext.Provider value={{ cards, setCards, updateCards }}>
             <div className="container">
                 <h1>Add a card to the collection!</h1>
                 <Form />
