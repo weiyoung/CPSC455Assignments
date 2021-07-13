@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import { CardsContext } from '../contexts/CardsContext'
+import { useState, useEffect } from 'react'
 import { useContext } from 'react'
+import { CardsContext } from '../contexts/CardsContext'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import axios from 'axios'
 
 const Star = ({ _id, star, ...otherProps }) => {
     const { updateCards } = useContext(CardsContext)
     const [starred, setStarred] = useState(star)
+
+    useEffect(() => {
+        setStarred(star)
+    }, [star])
 
     const toggleStar = () => {
         setStarred(currentStarred => {

@@ -5,10 +5,10 @@ const About = () => (
             Add new cards using the form in the Home page.
             <br />
             <br />
-            You can Show All, Hide All, and Delete All trading cards!
+            You can Star your favorite cards and Show Starred cards!
             <br />
             <br />
-            You can also Star your favorite cards and Show Starred cards!
+            You can also Expand, Collapse, and Delete All trading cards!
             <br />
             <br />
             This webapp is made using the MERN stack: MongoDB, Express, React, and Node.

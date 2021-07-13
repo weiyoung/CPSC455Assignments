@@ -21,6 +21,7 @@ app.use(cors())
 // routes
 app.use('/', require('./routes/index'))
 app.use('/cards', require('./routes/cards'))
+app.use('/starred', require('./routes/starred'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
