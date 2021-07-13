@@ -1,19 +1,22 @@
 import '../css/App.css'
 import '../css/Form.css'
+import { CardsContext } from '../contexts/CardsContext'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
-const Form = ({ setCards, cardDeck }) => {
-    const {register, handleSubmit} = useForm()
+const Form = () => {
+    const { setCards } = useContext(CardsContext)
+    const { register, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
         const newCard = {
+            id: Date.now().toString().substring(4, 12),
             name: data.name,
             url: data.url,
             desc: data.desc
         }
-        const newDeck = [...cardDeck, newCard] // need to setCards with a new deck so useState will actually update the cards
-        setCards(newDeck)
-        cardDeck.push(newCard)
+        axios.post(`http://localhost:5000/cards`, newCard).then(res => setCards(res.data))
         e.target.reset()
     }
 
