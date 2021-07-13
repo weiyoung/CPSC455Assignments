@@ -1,49 +1,48 @@
-var express = require('express');
-var router = express.Router();
-
-let cards = [
-  {
-    id: Date.now().toString().substring(4, 12),
-    name: "Pikachu",
-    url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
-    desc: "When Pikachu meet, they’ll touch their tails together and exchange electricity through them as a form of greeting."
-  }
-];
+const express = require('express')
+const { CardModel } = require('../models/card.model')
+const router = express.Router()
 
 // GET one card
 router.get('/:id', function (req, res) {
-  const [card] = cards.filter(card => card.id === req.params.id);
-  res.send(card);
-});
+  CardModel.findById(req.params.id)
+    .then(card => res.send(card))
+    .catch(err => console.error(err))
+})
 
 // GET all cards
 router.get('/', function (req, res) {
-  res.send(cards);
-});
+  CardModel.find()
+    .then(cards => res.send(cards))
+    .catch(err => console.error(err))
+})
 
 // POST one card
 router.post('/', function (req, res) {
-  cards.push(req.body);
-  res.send(cards);
-});
+  const newCard = new CardModel(req.body)
+  newCard.save()
+    .then(card => res.send(card))
+    .catch(err => console.error(err))
+})
 
 // PATCH one card
 router.patch('/:id', function (req, res) {
-  const [card] = cards.filter(card => card.id === req.params.id);
-  card.desc = req.body.desc;
-  res.send(cards);
-});
+  CardModel.findByIdAndUpdate(req.params.id, req.body)
+    .then(card => res.send(card))
+    .catch(err => console.error(err))
+})
 
 // DELETE one card
 router.delete('/:id', function (req, res) {
-  cards = cards.filter(card => card.id !== req.params.id);
-  res.send(cards);
-});
+  CardModel.findByIdAndDelete(req.params.id)
+    .then(card => res.send(card))
+    .catch(err => console.error(err))
+})
 
 // DELETE all cards
 router.delete('/', function (req, res) {
-  cards = [];
-  res.send(cards);
-});
+  CardModel.deleteMany({})
+    .then(cards => res.send(cards))
+    .catch(err => console.error(err))
+})
 
-module.exports = router;
+module.exports = router

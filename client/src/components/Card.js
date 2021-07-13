@@ -1,16 +1,17 @@
 import '../css/Card.css'
 import Popup from '../components/Popup'
+import Star from '../components/Star'
 import { CardsContext } from '../contexts/CardsContext'
 import { useContext } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
 const Card = ({ card }) => {
-    const { setCards } = useContext(CardsContext)
+    const { updateCards } = useContext(CardsContext)
     const [popupOpen, setPopupOpen] = useState(false)
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/cards/${card.id}`).then(res => setCards(res.data))
+        axios.delete(`http://${window.location.hostname}:5000/cards/${card._id}`).then(updateCards)
     }
 
     return (
@@ -19,8 +20,11 @@ const Card = ({ card }) => {
             <img className="card-img" src={card.url} alt={card.name} />
             <div className="card-desc">{card.desc}</div>
 
-            <button onClick={() => setPopupOpen(true)} className="card-btn">More Info</button>
-            <button onClick={handleDelete} className="card-btn-red">Delete</button>
+            <div className="card-btn-div">
+                <Star {...card} className="card-star"/>
+                <button onClick={() => setPopupOpen(true)} className="card-btn">More Info</button>
+                <button onClick={handleDelete} className="card-btn-red">Delete</button>
+            </div>
 
             <Popup content={card} open={popupOpen} onClose={() => setPopupOpen(false)} />
         </div>

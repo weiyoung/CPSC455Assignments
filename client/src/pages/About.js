@@ -1,12 +1,17 @@
 const About = () => (
     <div className={"container"}>
-        <h1>Welcome to my trading card website!</h1>
+        <h1>Welcome to my Trading Cards Webapp!</h1>
         <p>
-            You can create your own trading cards by adding them on the Home page!
+            Add new cards using the form in the Home page.
             <br />
-            You can also Show All, Hide All, and Delete All trading cards!
             <br />
-            This website uses LocalStorage to persistently store your cards, so they will remain here even after you reload the site.
+            You can Star your favorite cards and Show Starred cards!
+            <br />
+            <br />
+            You can also Expand, Collapse, and Delete All trading cards!
+            <br />
+            <br />
+            This webapp is made using the MERN stack: MongoDB, Express, React, and Node.
         </p>
     </div>
 )

@@ -6,17 +6,17 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
 const Form = () => {
-    const { setCards } = useContext(CardsContext)
+    const { updateCards } = useContext(CardsContext)
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
         const newCard = {
-            id: Date.now().toString().substring(4, 12),
             name: data.name,
             url: data.url,
-            desc: data.desc
+            desc: data.desc,
+            star: false
         }
-        axios.post(`http://localhost:5000/cards`, newCard).then(res => setCards(res.data))
+        axios.post(`http://${window.location.hostname}:5000/cards`, newCard).then(updateCards)
         e.target.reset()
     }
 

@@ -7,19 +7,31 @@ import axios from 'axios'
 
 const Home = () => {
     const [cards, setCards] = useState([])
-
-    useEffect(() => {
-        axios.get(`http://localhost:5000/cards`).then(res => setCards(res.data))
-    }, [])
-
     const [cardsVisible, setCardsVisible]= useState(true)
+    const [showEverything, setShowEverything] = useState(true)
+
+    const updateCards = () => {
+        axios.get(`http://${window.location.hostname}:5000/cards`).then(res => setCards(res.data))
+        setShowEverything(true)
+    }
+
+    useEffect(updateCards, [])
+
+    const handleShowStarred = () => {
+        if (showEverything)
+            axios.get(`http://${window.location.hostname}:5000/starred`).then(res => setCards(res.data))
+        else
+            updateCards()
+
+        setShowEverything(!showEverything)
+    }
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/cards`).then(res => setCards(res.data))
+        axios.delete(`http://${window.location.hostname}:5000/cards`).then(updateCards)
     }
 
     return (
-        <CardsContext.Provider value={{ cards, setCards }}>
+        <CardsContext.Provider value={{ cards, setCards, updateCards }}>
             <div className="container">
                 <h1>Add a card to the collection!</h1>
                 <Form />
@@ -28,8 +40,8 @@ const Home = () => {
             <div className="container">
                 <h1>Card collection</h1>
                 <div className="card-buttons">
-                    <button onClick={() => setCardsVisible(true)} className="button">Show All</button>
-                    <button onClick={() => setCardsVisible(false)} className="button">Hide All</button>
+                    <button onClick={handleShowStarred} className="button">{showEverything ? "Show Starred" : "Show Everything"}</button>
+                    <button onClick={() => setCardsVisible(x => !x)} className="button">{cardsVisible ? "Collapse" : "Expand"}</button>
                     <button onClick={handleDelete} className="button-red">Delete All</button>
                 </div>
                 <div className="card-collection">
