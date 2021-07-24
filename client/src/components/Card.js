@@ -1,6 +1,6 @@
 import '../css/Card.css'
-import Popup from '../components/Popup'
-import Star from '../components/Star'
+import Popup from './Popup'
+import Star from './Star'
 import { CardsContext } from '../contexts/CardsContext'
 import { useContext } from 'react'
 import { useState } from 'react'

@@ -1,6 +1,6 @@
 import '../css/Popup.css'
 import '../css/Form.css'
-import Star from '../components/Star'
+import Star from './Star'
 import { CardsContext } from '../contexts/CardsContext'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
