@@ -14,7 +14,7 @@ const Star = ({ _id, star, ...otherProps }) => {
 
     const toggleStar = () => {
         setStarred(currentStarred => {
-            axios.patch(`http://${window.location.hostname}:5000/cards/${_id}`, { star: !currentStarred }).then(updateCards)
+            axios.patch(`/cards/${_id}`, { star: !currentStarred }).then(updateCards)
             return !currentStarred})
     }
 

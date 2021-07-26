@@ -11,7 +11,7 @@ const Home = () => {
     const [showEverything, setShowEverything] = useState(true)
 
     const updateCards = () => {
-        axios.get(`http://${window.location.hostname}:5000/cards`).then(res => setCards(res.data))
+        axios.get(`/cards`).then(res => setCards(res.data))
         setShowEverything(true)
     }
 
@@ -19,7 +19,7 @@ const Home = () => {
 
     const handleShowStarred = () => {
         if (showEverything)
-            axios.get(`http://${window.location.hostname}:5000/starred`).then(res => setCards(res.data))
+            axios.get(`/starred`).then(res => setCards(res.data))
         else
             updateCards()
 
@@ -27,7 +27,7 @@ const Home = () => {
     }
 
     const handleDelete = () => {
-        axios.delete(`http://${window.location.hostname}:5000/cards`).then(updateCards)
+        axios.delete(`/cards`).then(updateCards)
     }
 
     return (

@@ -13,7 +13,7 @@ const Popup = ({ content, open, onClose }) => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
-        axios.patch(`http://${window.location.hostname}:5000/cards/${content._id}`, { desc: data.desc }).then(updateCards)
+        axios.patch(`/cards/${content._id}`, { desc: data.desc }).then(updateCards)
         setEditMode(false)
     }
 
