@@ -11,7 +11,7 @@ const Card = ({ card }) => {
     const [popupOpen, setPopupOpen] = useState(false)
 
     const handleDelete = () => {
-        axios.delete(`http://${window.location.hostname}:5000/cards/${card._id}`).then(updateCards)
+        axios.delete(`/cards/${card._id}`).then(updateCards)
     }
 
     return (
