@@ -18,6 +18,10 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
+
 // routes
 app.use('/', require('./routes/index'))
 app.use('/cards', require('./routes/cards'))
